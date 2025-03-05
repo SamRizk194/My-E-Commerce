@@ -38,7 +38,10 @@ function ProductsList() {
           </div>
         </div>
         <div className="row justify-content-center">
-          <div className="buttons justify-content-center d-flex">
+          <div
+            className="buttons justify-content-center d-flex"
+            style={{ marginBottom: "100px" }}
+          >
             <button
               className="btn btn-outline-dark "
               onClick={() => {
@@ -67,7 +70,10 @@ function ProductsList() {
         <div className="row">
           {products.map((product) => {
             return (
-              <div className="col-lg-3 col-md-4 col-sm-6" key={product.id}>
+              <div
+                className="col-lg-3 text-center col-md-4 col-sm-6 mb-4"
+                key={product.id}
+              >
                 <Card product={product} showButton={true} />
               </div>
             );
