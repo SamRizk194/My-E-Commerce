@@ -74,7 +74,7 @@ function ProductsList() {
                 className="col-lg-3 text-center col-md-4 col-sm-6 mb-4"
                 key={product.id}
               >
-                <Card product={product} showButton={true} />
+                <Card product={product} />
               </div>
             );
           })}

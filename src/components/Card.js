@@ -14,11 +14,9 @@ function Card(props) {
       <div className="card-body">
         <h5 className="card-title mb-0">{product.title.substring(0, 10)}..</h5>
         <p className="lead fw-bold">{product.price}$</p>
-        {showButton && (
-          <Link className="btn btn-outline-dark" to={`/product/${product.id}`}>
-            Buy Now
-          </Link>
-        )}
+        <Link className="btn btn-outline-dark" to={`/products/${product.id}`}>
+          Buy Now
+        </Link>
       </div>
     </div>
   );
