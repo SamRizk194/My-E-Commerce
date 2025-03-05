@@ -1,3 +1,5 @@
+import ProductsList from "./ProductsList";
+
 function Home() {
   return (
     <div className="hero">
@@ -17,6 +19,7 @@ function Home() {
           </div>
         </div>
       </div>
+      <ProductsList />
     </div>
   );
 }
