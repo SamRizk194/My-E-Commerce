@@ -1,0 +1,12 @@
+.nav-link:hover {
+  color: black !important;
+}
+
+.nav-link.active:hover {
+  color: black !important;
+}
+
+.navbar-nav .nav-link,
+.navbar-nav .nav-item {
+  transition: color 0.3s ease;
+}

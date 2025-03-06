@@ -1,3 +1,4 @@
+import Footer from "./Footer";
 import ProductsList from "./ProductsList";
 
 function Home() {
@@ -20,6 +21,7 @@ function Home() {
         </div>
       </div>
       <ProductsList />
+      <Footer />
     </div>
   );
 }
