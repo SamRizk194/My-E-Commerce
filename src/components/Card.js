@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 function Card(props) {
-  const { product, showButton } = props;
+  const { product } = props;
 
   return (
     <div className="card h-100 p-4 ">

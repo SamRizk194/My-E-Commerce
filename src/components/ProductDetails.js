@@ -1,7 +1,18 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts } from "../rtk/slices/product-slice";
+import { addToCart } from "../rtk/slices/cart-slice";
 
 function ProductDetails() {
+  const products = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+  console.log(products);
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
+
   const api_url = "https://fakestoreapi.com/products";
   const [product, setProduct] = useState({});
   const params = useParams();
@@ -33,7 +44,11 @@ function ProductDetails() {
             </p>
             <h3 className=" display-6 fw-bold my-4">{product.price}</h3>
             <p className="lead">{product.description}</p>
-            <button className="btn btn-outline-dark py-2 px-4">
+            <button
+              className="btn btn-outline-dark py-2 px-4"
+              onClick={() => dispatch(addToCart(product))}
+              variant="primary"
+            >
               Add To Cart
             </button>
             <Link className="btn btn-outline-dark ms-2 py-2 px-3" to="/cart">

@@ -1,0 +1,10 @@
+.table td,
+.table th {
+  vertical-align: middle;
+  font-weight: normal;
+}
+
+.table th {
+  font-size: 20px;
+  font-weight: bold;
+}
