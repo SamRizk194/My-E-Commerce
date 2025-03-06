@@ -3,7 +3,7 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart, clear } from "../rtk/slices/cart-slice";
-import "./cart.css";
+import "./css/cart.css";
 
 function Cart() {
   const cart = useSelector((state) => state.cart);
@@ -15,12 +15,9 @@ function Cart() {
 
   return (
     <Container className="text-center">
-      <h1 className="display-3 my-5">Welcome to Cart</h1>
-      <hr />
+      <h1 className="display-4 mt-5 mb-0">Welcome to Cart</h1>
 
-      <h4 className="py-5 fw-bold mt-5 ">
-        Total Price : {totalPrice.toFixed(2)} $
-      </h4>
+      <h4 className="py-5">Total Price : {totalPrice.toFixed(2)} $</h4>
       <Button
         className="mb-5 btn btn-outline-dark"
         variant=""
