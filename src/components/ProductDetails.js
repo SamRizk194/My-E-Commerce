@@ -26,28 +26,30 @@ function ProductDetails() {
   return (
     <>
       <div className="container py-5">
-        <div className="row py-5">
-          <div className="col-md-6">
+        <div
+          className="row py-5 d-flex justify-content-center align-items-center"
+          style={{ minHeight: "100vh" }}
+        >
+          <div className="col-12 col-sm-8 col-md-6 text-center mb-5">
             <img
               src={product.image}
               alt={product.title}
-              height="400px"
-              width="400px"
+              className="img-fluid"
+              style={{ maxHeight: "400px" }}
             />
           </div>
-          <div className="col-md-6">
+          <div className="col-12 col-sm-8 col-md-6">
             <h4 className="text-uppercase text-black-50">{product.category}</h4>
             <h1 className="display-5">{product.title}</h1>
             <p className="lead fw-bolder">
               Rating {product.rating && product.rating.rate}
               <i className="fa fa-star"></i>
             </p>
-            <h3 className=" display-6 fw-bold my-4">{product.price}</h3>
+            <h3 className="display-6 fw-bold my-4">{product.price}</h3>
             <p className="lead">{product.description}</p>
             <button
               className="btn btn-outline-dark py-2 px-4"
               onClick={() => dispatch(addToCart(product))}
-              variant="primary"
             >
               Add To Cart
             </button>
