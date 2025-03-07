@@ -29,7 +29,7 @@ function Cart() {
       </Button>
 
       <div className="table-responsive">
-        <Table striped bordered hover>
+        <Table bordered hover>
           <thead>
             <tr>
               <th>Id</th>
