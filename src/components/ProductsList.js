@@ -39,11 +39,11 @@ function ProductsList() {
         </div>
         <div className="row justify-content-center">
           <div
-            className="buttons justify-content-center d-flex"
-            style={{ marginBottom: "100px" }}
+            className="buttons d-flex justify-content-center flex-wrap mb-4"
+            style={{ gap: "10px" }}
           >
             <button
-              className="btn btn-outline-dark "
+              className="btn btn-outline-dark"
               onClick={() => {
                 getProducts();
               }}

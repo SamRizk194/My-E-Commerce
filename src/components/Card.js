@@ -4,15 +4,15 @@ function Card(props) {
   const { product } = props;
 
   return (
-    <div className="card h-100 p-4 ">
+    <div className="card h-100 p-4">
       <img
         src={product.image}
         className="card-img-top"
         alt={product.title}
-        height="250px"
+        style={{ maxHeight: "250px", objectFit: "cover" }}
       />
       <div className="card-body">
-        <h5 className="card-title mb-0">{product.title.substring(0, 10)}..</h5>
+        <h5 className="card-title mb-0">{product.title.substring(0, 10)}...</h5>
         <p className="lead fw-bold">{product.price}$</p>
         <Link className="btn btn-outline-dark" to={`/products/${product.id}`}>
           Buy Now
