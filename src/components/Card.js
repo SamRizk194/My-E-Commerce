@@ -9,14 +9,16 @@ function Card(props) {
         src={product.image}
         className="card-img-top"
         alt={product.title}
-        style={{ maxHeight: "250px", objectFit: "cover" }}
+        style={{ height: "250px", objectFit: "cover" }}
       />
-      <div className="card-body">
+      <div className="card-body d-flex flex-column">
         <h5 className="card-title mb-0">{product.title.substring(0, 10)}...</h5>
         <p className="lead fw-bold">{product.price}$</p>
-        <Link className="btn btn-outline-dark" to={`/products/${product.id}`}>
-          Buy Now
-        </Link>
+        <div className="mt-auto">
+          <Link className="btn btn-outline-dark" to={`/products/${product.id}`}>
+            Buy Now
+          </Link>
+        </div>
       </div>
     </div>
   );
