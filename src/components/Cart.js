@@ -33,8 +33,7 @@ function Cart() {
           <thead>
             <tr>
               <th>Id</th>
-              <th>Title</th>
-              <th>Image</th>
+              <th>Product</th>
               <th>Price</th>
               <th>Quantity</th>
               <th>Actions</th>
@@ -44,7 +43,6 @@ function Cart() {
             {cart.map((product) => (
               <tr key={product.id}>
                 <td>{product.id}</td>
-                <td>{product.title}</td>
                 <td>
                   <Image
                     src={product.image}
