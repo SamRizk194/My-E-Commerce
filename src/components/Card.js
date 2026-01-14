@@ -1,25 +1,15 @@
 import { Link } from "react-router-dom";
+import "./css/card.css";
 
-function Card(props) {
-  const { product } = props;
-
+function Card({ product }) {
   return (
-    <div className="card h-100 p-4">
-      <img
-        src={product.image}
-        className="card-img-top"
-        alt={product.title}
-        style={{ height: "250px", objectFit: "cover" }}
-      />
-      <div className="card-body d-flex flex-column">
-        <h5 className="card-title mb-0">{product.title.substring(0, 10)}...</h5>
-        <p className="lead fw-bold">{product.price}$</p>
-        <div className="mt-auto">
-          <Link className="btn btn-outline-dark" to={`/products/${product.id}`}>
-            Buy Now
-          </Link>
-        </div>
-      </div>
+    <div className="product-card">
+      <img src={product.image} alt={product.title} />
+      <h3>{product.title.substring(0, 20)}...</h3>
+      <p className="price">{product.price}$</p>
+      <Link className="btn-buy" to={`/products/${product.id}`}>
+        Buy Now
+      </Link>
     </div>
   );
 }

@@ -1,65 +1,58 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts } from "../rtk/slices/product-slice";
+import { useDispatch } from "react-redux";
 import { addToCart } from "../rtk/slices/cart-slice";
+import "./css/product-details.css";
 
 function ProductDetails() {
-  const products = useSelector((state) => state.products);
   const dispatch = useDispatch();
-  console.log(products);
-
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
-
-  const api_url = "https://fakestoreapi.com/products";
-  const [product, setProduct] = useState({});
   const params = useParams();
+  const [product, setProduct] = useState({});
 
   useEffect(() => {
-    fetch(`${api_url}/${params.productId}`)
+    fetch(`https://fakestoreapi.com/products/${params.productId}`)
       .then((res) => res.json())
-      .then((product) => setProduct(product));
+      .then((data) => setProduct(data));
   }, [params.productId]);
 
   return (
-    <>
-      <div className="container py-5">
-        <div
-          className="row py-5 d-flex justify-content-center align-items-center"
-          style={{ minHeight: "100vh" }}
-        >
-          <div className="col-12 col-sm-8 col-md-6 text-center mb-5">
+    <div className="product-details container py-5">
+      <div className="row justify-content-center align-items-center g-4">
+        <div className="col-12 col-md-6 text-center">
+          <div className="image-container">
             <img
               src={product.image}
               alt={product.title}
-              className="img-fluid"
-              style={{ maxHeight: "400px" }}
+              className="product-img"
             />
           </div>
-          <div className="col-12 col-sm-8 col-md-6">
-            <h4 className="text-uppercase text-black-50">{product.category}</h4>
-            <h1 className="display-5">{product.title}</h1>
-            <p className="lead fw-bolder">
-              Rating {product.rating && product.rating.rate}
-              <i className="fa fa-star"></i>
-            </p>
-            <h3 className="display-6 fw-bold my-4">{product.price}</h3>
-            <p className="lead">{product.description}</p>
+        </div>
+
+        <div className="col-12 col-md-6">
+          <h4 className="product-category">{product.category}</h4>
+          <h1 className="product-title">{product.title}</h1>
+          <p className="product-rating">
+            Rating: {product.rating && product.rating.rate}{" "}
+            <i className="fa fa-star"></i>
+          </p>
+          <h3 className="product-price">{product.price}$</h3>
+          <p className="product-description">{product.description}</p>
+
+          <div className="buttons mt-4">
             <button
-              className="btn btn-outline-dark py-2 px-4"
+              className="btn-add"
               onClick={() => dispatch(addToCart(product))}
             >
               Add To Cart
             </button>
-            <Link className="btn btn-outline-dark ms-2 py-2 px-3" to="/cart">
+            <Link className="btn-go-cart" to="/cart">
               Go To Cart
             </Link>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
+
 export default ProductDetails;
