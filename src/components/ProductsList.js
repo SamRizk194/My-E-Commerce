@@ -17,6 +17,7 @@ function ProductsList() {
       .then((res) => res.json())
       .then((data) => setCategories(data));
   };
+
   const getProductInCategory = (catName) => {
     fetch(`${api_url}/category/${catName}`)
       .then((res) => res.json())
@@ -29,58 +30,56 @@ function ProductsList() {
   }, []);
 
   return (
-    <>
-      <div className="container my-5 py-5">
-        <div className="row">
-          <div className="col-12 mb-5">
-            <h1 className="display-6 fw-bolder text-center">Latest Products</h1>
-            <hr />
-          </div>
-        </div>
-        <div className="row justify-content-center">
-          <div
-            className="buttons d-flex justify-content-center flex-wrap mb-4"
-            style={{ gap: "10px" }}
-          >
-            <button
-              className="btn btn-outline-dark"
-              onClick={() => {
-                getProducts();
-              }}
-            >
-              All
-            </button>
-
-            {categories.map((cat) => {
-              return (
-                <button
-                  className="btn btn-outline-dark ms-2"
-                  key={cat}
-                  onClick={() => {
-                    getProductInCategory(cat);
-                  }}
-                >
-                  {cat}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        <div className="row">
-          {products.map((product) => {
-            return (
-              <div
-                className="col-lg-3 text-center col-md-4 col-sm-6 mb-4"
-                key={product.id}
-              >
-                <Card product={product} />
-              </div>
-            );
-          })}
+    <div className="container my-5 py-5">
+      <div className="row">
+        <div className="col-12 mb-5">
+          <h1 className="display-6 fw-bolder text-center">Latest Products</h1>
+          <hr />
         </div>
       </div>
-    </>
+
+      <div className="row justify-content-center">
+        <div
+          className="buttons d-flex justify-content-center flex-wrap mb-4"
+          style={{ gap: "10px" }}
+        >
+          <button className="btn btn-outline-dark" onClick={getProducts}>
+            All
+          </button>
+
+          {categories.map((cat) => (
+            <button
+              className="btn btn-outline-dark"
+              key={cat}
+              onClick={() => getProductInCategory(cat)}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="row">
+        {products.map((product) => (
+          <div
+            key={product.id}
+            className="
+              col-12
+              col-sm-6
+              col-md-4
+              col-lg-3
+              mb-4
+              d-flex
+              justify-content-center
+              justify-content-sm-start
+            "
+          >
+            <Card product={product} />
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
+
 export default ProductsList;
